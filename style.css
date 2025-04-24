@@ -1,5 +1,4 @@
-/* style.css */
-
+/* === Base Reset === */
 * {
   margin: 0;
   padding: 0;
@@ -13,38 +12,44 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
   padding: 20px;
+  min-height: 100vh;
 }
 
+/* === Header === */
 h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 2.8rem;
   color: #00ffe1;
   text-shadow: 0 0 10px #00ffe1;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
+/* === Game Container === */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .game {
   display: grid;
-  grid-template-columns: repeat(3, 100px);
+  grid-template-columns: repeat(3, 1fr);
   gap: 15px;
+  width: 100%;
+  max-width: 400px;
 }
 
+/* === Game Boxes === */
 .box {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   font-size: 2.5rem;
+  background: transparent;
   color: #00ffe1;
-  background-color: transparent;
   border: 2px solid #00ffe1;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   text-shadow: 0 0 5px #00ffe1;
   box-shadow: 0 0 15px rgba(0, 255, 225, 0.3);
@@ -56,9 +61,10 @@ h1 {
   box-shadow: 0 0 20px rgba(0, 255, 225, 0.6);
 }
 
+/* === Buttons === */
 #reset-btn,
 #new-btn {
-  margin-top: 20px;
+  margin: 20px 10px;
   padding: 12px 24px;
   font-size: 1rem;
   color: #000;
@@ -67,7 +73,7 @@ h1 {
   border-radius: 12px;
   cursor: pointer;
   box-shadow: 0 0 10px #00ffe1, 0 0 20px #00ffe1;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: 0.3s;
 }
 
 #reset-btn:hover,
@@ -76,20 +82,24 @@ h1 {
   transform: scale(1.05);
 }
 
+/* === Message === */
 .msg-container {
   margin: 20px 0;
   padding: 12px 24px;
   background-color: #1e1e1e;
   color: #00ffe1;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   border: 2px solid #00ffe1;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0, 255, 225, 0.4);
+  text-align: center;
 }
 
 .hide {
   display: none;
 }
+
+/* === Winning Animation === */
 @keyframes winner-glow {
   0% {
     background-color: rgba(0, 255, 225, 0.1);
@@ -110,4 +120,46 @@ h1 {
 
 .winner {
   animation: winner-glow 1s infinite;
+}
+
+/* === Footer === */
+.footer {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  font-size: 0.9rem;
+  color: #00ffe1;
+  text-shadow: 0 0 5px #00ffe1;
+  opacity: 0.8;
+  z-index: 100;
+}
+
+/* === Responsive Design === */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .game {
+    gap: 10px;
+    max-width: 90vw;
+  }
+
+  .box {
+    font-size: 1.8rem;
+  }
+
+  #reset-btn,
+  #new-btn {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+
+  .msg-container {
+    font-size: 1.3rem;
+  }
+
+  .footer {
+    font-size: 0.75rem;
+  }
 }
