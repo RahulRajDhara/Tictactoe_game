@@ -1,14 +1,16 @@
-/* === Base Reset === */
+/* Import DUNE-style font */
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Michroma', sans-serif;
 }
 
 body {
-  background-color: #0f0f0f;
-  color: #fff;
+  background: linear-gradient(145deg, #f2e9dc, #d8ccc0); /* light desert tones */
+  color: #333;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,16 +18,15 @@ body {
   min-height: 100vh;
 }
 
-/* === Header === */
+/* Header */
 h1 {
-  font-size: 2.8rem;
-  color: #00ffe1;
-  text-shadow: 0 0 10px #00ffe1;
+  font-size: 2.5rem;
   margin-bottom: 20px;
+  color: #2a2a2a;
   text-align: center;
 }
 
-/* === Game Container === */
+/* Game Container */
 .container {
   display: flex;
   justify-content: center;
@@ -36,62 +37,56 @@ h1 {
 .game {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 12px;
   width: 100%;
   max-width: 400px;
 }
 
-/* === Game Boxes === */
+/* Game Boxes */
 .box {
   width: 100%;
   aspect-ratio: 1 / 1;
-  font-size: 2.5rem;
-  background: transparent;
-  color: #00ffe1;
-  border: 2px solid #00ffe1;
-  border-radius: 12px;
+  font-size: 2.2rem;
+  color: #2a2a2a;
+  background-color: #ffffff;
+  border: 2px solid #aaa;
+  border-radius: 10px;
   cursor: pointer;
-  text-shadow: 0 0 5px #00ffe1;
-  box-shadow: 0 0 15px rgba(0, 255, 225, 0.3);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .box:hover {
-  background-color: rgba(0, 255, 225, 0.1);
-  box-shadow: 0 0 20px rgba(0, 255, 225, 0.6);
+  background-color: #f0eee9;
 }
 
-/* === Buttons === */
+/* Buttons */
 #reset-btn,
 #new-btn {
-  margin: 20px 10px;
-  padding: 12px 24px;
+  margin: 18px 8px;
+  padding: 10px 20px;
   font-size: 1rem;
-  color: #000;
-  background-color: #00ffe1;
+  color: #fff;
+  background-color: #3a3a3a;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 0 10px #00ffe1, 0 0 20px #00ffe1;
-  transition: 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 #reset-btn:hover,
 #new-btn:hover {
-  background-color: #00c0a8;
-  transform: scale(1.05);
+  background-color: #5c5c5c;
 }
 
-/* === Message === */
+/* Message Display */
 .msg-container {
   margin: 20px 0;
   padding: 12px 24px;
-  background-color: #1e1e1e;
-  color: #00ffe1;
-  font-size: 1.6rem;
-  border: 2px solid #00ffe1;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 255, 225, 0.4);
+  background-color: #eae4d4;
+  color: #2a2a2a;
+  font-size: 1.5rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
   text-align: center;
 }
 
@@ -99,64 +94,48 @@ h1 {
   display: none;
 }
 
-/* === Winning Animation === */
-@keyframes winner-glow {
-  0% {
-    background-color: rgba(0, 255, 225, 0.1);
-    transform: scale(1);
-    box-shadow: 0 0 10px #00ffe1;
+/* Subtle winner animation */
+@keyframes winner-pulse {
+  0%, 100% {
+    background-color: #f4f1eb;
   }
   50% {
-    background-color: rgba(0, 255, 225, 0.3);
-    transform: scale(1.1);
-    box-shadow: 0 0 20px #00ffe1, 0 0 30px #00ffe1;
-  }
-  100% {
-    background-color: rgba(0, 255, 225, 0.1);
-    transform: scale(1);
-    box-shadow: 0 0 10px #00ffe1;
+    background-color: #e2dcd2;
   }
 }
 
 .winner {
-  animation: winner-glow 1s infinite;
+  animation: winner-pulse 1s infinite;
 }
 
-/* === Footer === */
+/* Footer Credit */
 .footer {
   position: fixed;
   bottom: 10px;
   right: 15px;
-  font-size: 0.9rem;
-  color: #00ffe1;
-  text-shadow: 0 0 5px #00ffe1;
+  font-size: 0.85rem;
+  color: #666;
   opacity: 0.8;
-  z-index: 100;
 }
 
-/* === Responsive Design === */
+/* Responsive */
 @media (max-width: 480px) {
   h1 {
     font-size: 2rem;
   }
 
-  .game {
-    gap: 10px;
-    max-width: 90vw;
-  }
-
   .box {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   #reset-btn,
   #new-btn {
     font-size: 0.9rem;
-    padding: 10px 16px;
+    padding: 8px 14px;
   }
 
   .msg-container {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .footer {
