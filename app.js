@@ -4,9 +4,9 @@ let msgcontainer=document.querySelector(".msg-container");
 let msg=document.querySelector("#msg");
 let newgame=document.querySelector("#new-btn");
 let resetgm=document.querySelector("#reset-btn");
-let sound=new Audio("sound/click.mp3");
-let winner =new Audio("win/wineffect.mp3");
-let lost=new Audio("lost/losteffect.mp3");
+let sound=new Audio("click.mp3");
+let winner =new Audio("wineffect.mp3");
+let lost=new Audio("losteffect.mp3");
 // turn 1st payerO
 let turno=true;
 
